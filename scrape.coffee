@@ -1,13 +1,14 @@
 request = require 'request'
 fs = require 'fs'
 
-index = "http://scrapi.org/ids?images=true"
+url = "http://scrapi.org/ids?images=true"
+lasturl = null
 
-while index
-  request index, (err, res) ->
-    for href in result.items
+while url
+  request url, (err, res) ->
+    url = res._links.next
+    for href in res.items
       id = /\d+/.exec(href)[0]
-      request url, (err, res) ->
-        fs.writeFile id, res.body, (err) ->
-          console.error err or "Wrote #{id}"
-    index = res._links.next
+      request href, (err, res) ->
+        fs.writeFile "#{id}.png", res.body, (err) ->
+          console.log err or "Wrote #{id}.png"
