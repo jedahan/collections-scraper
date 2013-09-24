@@ -1,0 +1,23 @@
+{ "name": "collections-scraper"
+, "homepage": "http://scrAPI.org"
+, "bugs": "http://github.com/jedahan/collections-scraper/issues"
+, "licenses": [ "ISC" ]
+, "version": "0.0.1"
+, "description": "scrapes images from scrapi.org"
+, "author": "Jonathan Dahan <jonathan@jedahan.com>"
+, "dependencies":
+  { "coffee-script": "1.6.x"
+  , "request": "x"
+  }
+, "engines": {
+    "node": "0.10.x",
+    "npm":  "1.3.x"
+  }
+, "scripts":
+  { "start": "coffee scrape.coffee"
+  }
+, "repository" :
+  { "type" : "git"
+  , "url" : "http://github.com/jedahan/collections-scraper.git"
+  }
+}
